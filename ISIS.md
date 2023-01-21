@@ -45,7 +45,7 @@ net 49.0002.aabb.cc00.0600.00
 Protocol
 * Hello packet
 * LSP (PDU)
-
+* every isis router will have metric of 10. each hop increment at 90
 ---
 
 ## Configure 
@@ -54,6 +54,7 @@ R1
 router isis
 net 49.0001.0000.0000.0001.00 //declare NET
 is-type level-1 //Declare which DB will be in this router
+metric-style-wide // increase max hop
 exit
 int g0/1
 ip router isis //advertise hello packet L1 at this interface
@@ -62,7 +63,8 @@ ip router isis //advertise hello packet L1 at this interface
 R2
 router isis
 net 49.0001.0000.0000.0002.00
-is-type level-1-2
+is-type level-1
+metric-style-wide
 exit
 int r g0/1-2
 ip router isis
@@ -71,23 +73,43 @@ ip router isis
 R3
 router isis
 net 49.0001.0000.0000.0003.00
-is-type level-2-only
+is-type level-2-only //only advertise L2 hello
+is-tyoe level-1-2 //advertise L1 L2 hello
+metric-style-wide
 exit
-itn r g0/1-2
+int r g0/1-2
 ip router isis
-``` ```
+``` 
+```
 R4
 router isis
 net 49.0002.0000.0000.0004.00
-is-type level-2-only
+is-type level-1-2
 exit
-itn r g0/1-2
+int r g0/1-2
 ip router isis
-``` ```
-R5
-```
-## Tshoot
 ``` 
+```
+R5
+router isis
+net 49.0002.0000.0000.0005.00
+is-type level-1
+exit
+int r g0/1-2
+ip router isis
+```
+```
+R6
+router isis
+net 49.0002.0000.0000.0006.00
+is-type level-1
+exit
+int g0/2
+ip router isis
+
+## Tshoot
+```
+show isis
 show isis neighbors
 show run | s isis //section
 ```
