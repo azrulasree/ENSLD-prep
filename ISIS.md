@@ -42,4 +42,23 @@ router isis
 net 49.0002.aabb.cc00.0600.00
 ```
 
+## Configure 
+```
+router isis
+net 49.0002.aabb.cc00.0600.00 //declare NET
+is-type level-1 //Declare which DB will be in this router
+exit
+int g0/1
+ip router isis //advertise hello packet L1 at this interface
+```
+``` 
+show isis neighbors
+show run | s isis //section
+```
+![image](https://user-images.githubusercontent.com/83261924/213877378-55ac1717-e91f-44ac-9423-0734d38e53fd.png)
+![image](https://user-images.githubusercontent.com/83261924/213877436-894497ea-be5c-480c-a4a8-b42af7b0bc3f.png)
+Neighbor adjacencies take place at Layer 2. Not require IP address.
 
+Protocol
+* Hello packet
+* LSP (PDU)
