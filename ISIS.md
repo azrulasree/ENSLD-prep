@@ -2,6 +2,7 @@
 ## Basic of IS-IS
 * Created for ISO network not IP network.
 * have lot in common in OSPF
+* Link-state protocol
 
 ## Based on level:
 Intra-Area (Level 1) ES-IS
