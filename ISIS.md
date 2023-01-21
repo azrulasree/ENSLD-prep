@@ -161,3 +161,4 @@ if it become L1-L2 --> cause suboptimal routing
 3) at access layer (L0)
 
 ### Hybrid design
+For collapse core architecture ( 2-tier design)
