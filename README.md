@@ -5,7 +5,7 @@ Material are learnt through [cbtnugget](https://www.cbtnuggets.com/it-training/c
 
 ---
 
-## Design IPv4 and IPv6
+## Designing IPv4 and IPv6
 
 * class A - 0.0.0.1 -> 126.x.x.x 
   10.x.x.x/8
