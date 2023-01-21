@@ -1,7 +1,8 @@
 # EIGRP
 ## Basic
 * RFC 7868
-* Distance Vector Protocol
+* Distance Vector Protocol -
+* hybrid protocol
 * Fast Robust Stable
 * Feasibility condition
 * Open Standard
