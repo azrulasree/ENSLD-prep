@@ -15,18 +15,19 @@ Endpoint System (ES) <-Level 0-> Intermediate System (IS) <-Level 1->
 * Best practise to have transit fabric (area)
 
 ### Transit Area
-*Handle all level2 communication
+* Handle all level2 communication
+* transit for network.
 ![image](https://user-images.githubusercontent.com/83261924/213869763-e050c052-ce98-4083-b562-41dfd3620874.png)
 
 ```
 router isis
 is-type level-1 //adjacency form only same level# and area#
 is-type level-2 //adjacency from on same level# and different area#
-is-type level-1-2 //will have 2 hello packet.
+is-type level-1-2 //will have 2 hello packet. will give ATT bit
 ```
 > have is-is DB. seperated from L1 and L2 
 similar with totally NSSA of OSPF.
-
+> L1-L2 --> give ATT bit = tell L1 that he is the default route (0.0.0.0/0)
 
 ## Configure NET
 ![image](https://user-images.githubusercontent.com/83261924/213876749-12378069-de9d-4825-a465-32c1edb1294b.png)
@@ -143,3 +144,17 @@ R4/R5/R6
 router isis
 domain-password pw49 //domain-level auth
 ```
+
+## Design
+### Flat area
+![image](https://user-images.githubusercontent.com/83261924/213879462-e7948c44-a422-4a67-b9a3-e634cd54a008.png)
+* if All L1 --> scalability issue (all need to be in same area) 
+* if All L1-L2 --> good at first(only L1 database created) --> when next area added --> all this area will have L2 database as well --> cpu overheat
+* hence -->make all L2. --> when add new area (have L1-L2) --> not get those L1-L2
+
+### 3-tier enterprise campus
+![image](https://user-images.githubusercontent.com/83261924/213879769-a83572d3-eefa-4b7a-a78f-86d759801d1d.png)
+1) start at core layer (all L2). only know explicit exit
+if it become L1-L2 --> cause suboptimal routing
+2) at distribution layer (L1-L2)
+3) at access lauer (L0)
