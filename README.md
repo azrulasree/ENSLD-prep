@@ -34,4 +34,21 @@ considering how big the broadcast domain. How this will affect the CPU of switch
 Thing to consider:
 * Devices/host
 
+IPV6
+2600:1700:a40:502f::437
+* /128 bit
+* /64 --> similar with /24 of ipv4
+* :: = superfluous zeros are removed from the address
+* leading 0 are removed
+* :: --> can only be used 1 time
+ * No NAT, No ARP, No Broadcast
+ 
+ 2000::/3 - Global Unicast (ARIN - for reserve IP)
+ FC00::/7 - Local Unique Unicast (Private / specific use cases)
+ FEC0::/10 - Site-local IP address : deprecated(not used anymore)
+ FE80::/10 - link local = next hop.
+ NS (Neighbor Solicitation) <--> NA (Neighbor advertisment)
+ RS (Router Solicitation) <--> RA (Router Advertisement)
+ FF00::/8 - multicast
+
 
