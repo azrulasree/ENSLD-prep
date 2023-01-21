@@ -41,20 +41,35 @@ IPV6
 * :: = superfluous zeros are removed from the address
 * leading 0 are removed
 * :: --> can only be used 1 time
- * No NAT, No ARP, No Broadcast
+* No NAT, No ARP, No Broadcast
+* Multi homing - 2 different ISP
+* Previx Delegation
+* Auto Configuration
+
+Type of IPv6
+* 2000::/3 - Global Unicast (ARIN - for reserve IP)
+* FC00::/7 - Local Unique Unicast (Private / specific use cases)
+* FEC0::/10 - Site-local IP address : deprecated(not used anymore)
+* FF00::/8 - multicast
+* FE80::/10 - link local = next hop.
  
- 2000::/3 - Global Unicast (ARIN - for reserve IP)
+ To get Neighbor Discovery Protocol (NDP):
+* NS (Neighbor Solicitation) <--> NA (Neighbor advertisment)
+ To get Global unicast:
+* RS (Router Solicitation) <--> RA (Router Advertisement)
  
- FC00::/7 - Local Unique Unicast (Private / specific use cases)
- 
- FEC0::/10 - Site-local IP address : deprecated(not used anymore)
- 
- FE80::/10 - link local = next hop.
- 
- NS (Neighbor Solicitation) <--> NA (Neighbor advertisment)
- 
- RS (Router Solicitation) <--> RA (Router Advertisement)
- 
- FF00::/8 - multicast
+## IPv6 Assignment
+### Stateless - SLAAC
+Autoconfiguration. Easy. only get own IP.
+1) NDP protocol -> Fe80:: MAC
+2) Router discovery -> Global unicast -> 2600:/64 + eui-64
+3) eui-64 -> 1/2 MAC + FFFE + 1/2 MAC
+
+### Staful -DHCPv6
+Get option. Default gateway, SIP server, else
+
+### Stateless DHCPv6 / DHCPv6 Life
+combination of both
+
 
 
