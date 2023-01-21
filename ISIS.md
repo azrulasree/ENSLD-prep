@@ -2,7 +2,7 @@
 ## Basic of IS-IS
 * Created for ISO network not IP network.
 * have lot in common in OSPF
-* Link-state protocol
+* Link-state protocol - every router know entire topology(every router share every route that they connected to)
 
 ## Based on level:
 Intra-Area (Level 1) ES-IS
