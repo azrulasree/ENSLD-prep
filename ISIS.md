@@ -37,5 +37,9 @@ length: 6bit --> 16-bit
 
 49.0002.0000.0000.0002.00 --> 49(AFI).0002(area ID).(0000.0000.0002(MAC)).00(this is me)
 
-``` router isis
-net 49.0002.aabb.cc00.0600.00 ```
+``` 
+router isis
+net 49.0002.aabb.cc00.0600.00
+```
+
+
