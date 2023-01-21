@@ -144,6 +144,7 @@ R4/R5/R6
 router isis
 domain-password pw49 //domain-level auth
 ```
+---
 
 ## Design
 ### Flat area
@@ -157,4 +158,6 @@ domain-password pw49 //domain-level auth
 1) start at core layer (all L2). only know explicit exit
 if it become L1-L2 --> cause suboptimal routing
 2) at distribution layer (L1-L2)
-3) at access lauer (L0)
+3) at access layer (L0)
+
+### Hybrid design
