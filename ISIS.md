@@ -162,3 +162,7 @@ if it become L1-L2 --> cause suboptimal routing
 
 ### Hybrid design
 For collapse core architecture ( 2-tier design)
+![image](https://user-images.githubusercontent.com/83261924/213881471-90609ab5-5289-473e-814d-fe29c19f124c.png)
+* simpler design. Harder scalability
+
+
