@@ -44,11 +44,17 @@ IPV6
  * No NAT, No ARP, No Broadcast
  
  2000::/3 - Global Unicast (ARIN - for reserve IP)
+ 
  FC00::/7 - Local Unique Unicast (Private / specific use cases)
+ 
  FEC0::/10 - Site-local IP address : deprecated(not used anymore)
+ 
  FE80::/10 - link local = next hop.
+ 
  NS (Neighbor Solicitation) <--> NA (Neighbor advertisment)
+ 
  RS (Router Solicitation) <--> RA (Router Advertisement)
+ 
  FF00::/8 - multicast
 
 
