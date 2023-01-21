@@ -37,15 +37,13 @@ length: 6bit --> 16-bit
 
 49.0002.0000.0000.0002.00 --> 49(AFI).0002(area ID).(0000.0000.0002(MAC)).00(this is me)
 
-``` 
-router isis
-net 49.0002.aabb.cc00.0600.00
-```
-
 Protocol
 * Hello packet
 * LSP (PDU)
 * every isis router will have metric of 10. each hop increment at 90
+
+
+
 ---
 
 ## Configure 
@@ -106,7 +104,7 @@ is-type level-1
 exit
 int g0/2
 ip router isis
-
+```
 ## Tshoot
 ```
 show isis
@@ -116,7 +114,32 @@ show run | s isis //section
 
 ##  wireshark
 ![image](https://user-images.githubusercontent.com/83261924/213877378-55ac1717-e91f-44ac-9423-0734d38e53fd.png)
+
 ![image](https://user-images.githubusercontent.com/83261924/213877436-894497ea-be5c-480c-a4a8-b42af7b0bc3f.png)
 Neighbor adjacencies take place at Layer 2. Not require IP address.
 
+---
 
+## Security
+security policy in 3 layers
+* link level (between interface)
+* area level (for that area)
+* domain level (with different area)
+encryption: HMAC-MD5
+``` 
+R1
+int eth g0/0
+isis password r1r2 //link-level auth
+R2
+int eth g/0
+isis password r1r2
+
+R4/R5/R6
+router isis
+area-password area2pw //area-level auth
+
+
+R4/R5/R6
+router isis
+domain-password pw49 //domain-level auth
+```
