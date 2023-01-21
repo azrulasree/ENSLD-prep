@@ -42,23 +42,59 @@ router isis
 net 49.0002.aabb.cc00.0600.00
 ```
 
+Protocol
+* Hello packet
+* LSP (PDU)
+
+---
+
 ## Configure 
 ```
+R1
 router isis
-net 49.0002.aabb.cc00.0600.00 //declare NET
+net 49.0001.0000.0000.0001.00 //declare NET
 is-type level-1 //Declare which DB will be in this router
 exit
 int g0/1
 ip router isis //advertise hello packet L1 at this interface
 ```
 ``` 
+R2
+router isis
+net 49.0001.0000.0000.0002.00
+is-type level-1-2
+exit
+int r g0/1-2
+ip router isis
+```
+``` 
+R3
+router isis
+net 49.0001.0000.0000.0003.00
+is-type level-2-only
+exit
+itn r g0/1-2
+ip router isis
+``` ```
+R4
+router isis
+net 49.0002.0000.0000.0004.00
+is-type level-2-only
+exit
+itn r g0/1-2
+ip router isis
+``` ```
+R5
+```
+## Tshoot
+``` 
 show isis neighbors
 show run | s isis //section
 ```
+
+##  wireshark
 ![image](https://user-images.githubusercontent.com/83261924/213877378-55ac1717-e91f-44ac-9423-0734d38e53fd.png)
 ![image](https://user-images.githubusercontent.com/83261924/213877436-894497ea-be5c-480c-a4a8-b42af7b0bc3f.png)
 Neighbor adjacencies take place at Layer 2. Not require IP address.
 
-Protocol
-* Hello packet
-* LSP (PDU)
+
