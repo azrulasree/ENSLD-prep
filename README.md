@@ -65,11 +65,24 @@ Autoconfiguration. Easy. only get own IP.
 2) Router discovery -> Global unicast -> 2600:/64 + eui-64
 3) eui-64 -> 1/2 MAC + FFFE + 1/2 MAC
 
+```
+int e0/0
+ipv6 add autoconfig //for link local
+ipv6 add 2600:db8:dead:beef::/64 eui-64 //for global unicast
+```
+
 ### Staful -DHCPv6
 Get option. Default gateway, SIP server, else
 
 ### Stateless DHCPv6 / DHCPv6 Life
 combination of both
 
+## Interior Gateway Protocol
+summarization at distribution layer:
+* OSPF
+* EIGRP
 
-
+```
+int e0/0
+ipv6 add 
+```
