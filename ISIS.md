@@ -28,4 +28,14 @@ is-type level-1-2 //will have 2 hello packet.
 similar with totally NSSA of OSPF.
 
 
+## Configure NET
+![image](https://user-images.githubusercontent.com/83261924/213876749-12378069-de9d-4825-a465-32c1edb1294b.png)
+### NET - Network Entity Title == Router ID of OSPF
+length: 6bit --> 16-bit
 
+49.0001.0000.0000.0001.00 --> 49(AFI).0001(area ID).(0000.0000.0001(MAC)).00(this is me)
+
+49.0002.0000.0000.0002.00 --> 49(AFI).0002(area ID).(0000.0000.0002(MAC)).00(this is me)
+
+``` router isis
+net 49.0002.aabb.cc00.0600.00```
