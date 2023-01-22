@@ -7,8 +7,8 @@
 * Reliable Transport Protocol (RTP)
 * Feasibility condition
 * Open Standard
-* Lack: in big topology --> 1 interface down. query will happen to all interfaces of all router (active) --> create different AS --> need redistribute
 * AD - 90 . DEX - 170
+* Lack:
 
 ---
 ## EIGRP Neighborship
@@ -51,5 +51,26 @@ To calculate K Values
 loop free topology
 Advertise Distance / Route Distance
 Choose lower FD. as Successor Route
+
+### Stub Router
+![image](https://user-images.githubusercontent.com/83261924/213895448-1e30dd83-6661-49b2-b9d3-aee5714576a7.png)
+1) in big topology --> 1 interface down. query will happen to all interfaces of all router (active) --> create different AS --> need redistribute
+2) Make stub. 
+``` 
+router eigrp stub_area
+address-family ipv4 unicast autonomous-system 10
+eigrp stub // not advertise the router that he get. only his directly connected route + summary of its route
+network 0.0.0.0 0.0.0.0 //only be used in lab environment
+```
+
+### Leak Map --> route map --> stub sites
+![image](https://user-images.githubusercontent.com/83261924/213895550-0d028fd7-b321-4628-b1f5-31ab07a17a59.png)
+configure stub sites at distribution layer of branch interfaces. allow network behind R9 to be advertised.
+
+
+
+
+
+
 
 
