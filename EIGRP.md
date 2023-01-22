@@ -7,7 +7,8 @@
 * Reliable Transport Protocol (RTP)
 * Feasibility condition
 * Open Standard
-* Lack???
+* Lack: in big topology --> 1 interface down. query will happen to all interfaces of all router (active) --> create different AS --> need redistribute
+* AD - 90 . DEX - 170
 
 ---
 ## EIGRP Neighborship
@@ -50,3 +51,5 @@ To calculate K Values
 loop free topology
 Advertise Distance / Route Distance
 Choose lower FD. as Successor Route
+
+
