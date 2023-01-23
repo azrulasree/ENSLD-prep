@@ -1,6 +1,7 @@
 # EIGRP
 ## Basic
 * RFC 7868
+* Routing by rumour. only know what next to him.
 * Distance Vector Protocol - Know distance + know vector (like road sign)
 * hybrid protocol
 * Fast Robust Stable
@@ -53,6 +54,7 @@ Advertise Distance / Route Distance
 Choose lower FD. as Successor Route
 
 ### Stub Router
+Dont include me as transit
 ![image](https://user-images.githubusercontent.com/83261924/213895448-1e30dd83-6661-49b2-b9d3-aee5714576a7.png)
 1) in big topology --> 1 interface down. query will happen to all interfaces of all router (active) --> create different AS --> need redistribute
 2) Make stub. 
@@ -65,12 +67,45 @@ network 0.0.0.0 0.0.0.0 //only be used in lab environment
 
 ### Leak Map --> route map --> stub sites
 ![image](https://user-images.githubusercontent.com/83261924/213895550-0d028fd7-b321-4628-b1f5-31ab07a17a59.png)
+
 configure stub sites at distribution layer of branch interfaces. allow network behind R9 to be advertised.
 
+### Summarization Point
+are put at distribution layer
+![image](https://user-images.githubusercontent.com/83261924/214024318-4ded0d14-5ea1-4517-8ebb-9342a13ca103.png)
+
+---
+
+## Security
+### passive interface
+```
+router eigrp 10
+passive-interface eth 0/1
+```
+### Authentication
 
 
+```
+router eigrp NAMED
+address-family ipv4 unicast autonomous-system 10
+af-enterface eth 0/0
+authentication mode hmac-sha-256 [password]
+```
+```
+int eth 0/2
+ip authentication mode eigrp md5 //only md5 mode are availabe in numbered mode
+```
+### convert eigrp numbered to named
+```
+router eigrp 10
+eigrp upgrade-cli NAMED
+[yes]
+```
 
-
+## Troubleshoot
+```
+sh run | s eigrp
+```
 
 
 
