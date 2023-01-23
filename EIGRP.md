@@ -78,13 +78,15 @@ are put at distribution layer
 
 ## Security
 ### passive interface
+To avoid adjacencies are brodcast to unindented router
+
+At ISP router
 ```
 router eigrp 10
 passive-interface eth 0/1
 ```
 ### Authentication
-
-
+To be configured on interface-level
 ```
 router eigrp NAMED
 address-family ipv4 unicast autonomous-system 10
