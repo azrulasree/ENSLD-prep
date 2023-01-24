@@ -80,7 +80,8 @@ Distribution layer - stub area -> No type 4,5,7 --> 0.0.0.0/0 (default gateway)
 Core layer - area o
 
 ## Security
-passive interface - on router that connected to uplink.
+### passive interface
+on router that connected to uplink.
 ```
 R3
 passive-interface ethernet 0/1 
@@ -93,6 +94,20 @@ R2 learn R3 interface
 
 State become down --> passive-interface
 
+### Authentication
+```
+ip ospf message-digest-key 1 md5 [password]
+ip ospf authentication message-digest
+```
+### key-chain
+
+```
+key-chain ospf
+cryptographic-algorithm hmac-sha-256
+key-string [password]
+int e0/0
+ip ospf authentication key-chain ospf
+```
 
 ## Troubleshoot
 ```
