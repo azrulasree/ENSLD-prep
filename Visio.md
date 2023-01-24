@@ -41,12 +41,14 @@ Diagram type:
 ![image](https://user-images.githubusercontent.com/83261924/214344789-d7caa184-4092-485a-a6bd-95298b71d400.png)
 
 
-### Custom hostname and IP at visio.
+### Datagraphic
 ``` Data > Advance data graphic > create new ```
 ![image](https://user-images.githubusercontent.com/83261924/214345141-87fb6576-830c-4818-908c-f8a5bbabd094.png)
 
+Define both Hostname and IP like below:
 ![image](https://user-images.githubusercontent.com/83261924/212779158-3a505751-de0e-48e1-81dd-ab125b81d90f.png)
 
+> If no datagraphic present. ```select image > group > redo the whole process ```
 
 ## Trick
 ### layer
