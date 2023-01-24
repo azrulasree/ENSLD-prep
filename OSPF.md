@@ -26,7 +26,7 @@ network 192.168.23.0 0.0.0.255 area 0 //Hello packet on this network + area# + a
 OSPF interface-level
 ```
 int e 0/1
-ip ospf 1 area 0
+ip ospf 1 area 0 // ip ospf [prosess#] [area#]
 ```
 Remove LSA type-2. 
 ```
@@ -58,14 +58,41 @@ DR Multicast - 224.0.0.6
 6) Loading - load routing database from other router
 7) full state - state completed
 
-## LSA
+## Link-State Area  - LSA
 leveraged by service provider
-1) Type 1 - Router LSA (Router-ID + direcly connected)
-2) Type 2 - Network LSA ( Identify DR/BDR routing)
-3) Type 3 - summary LSA (area)
+1) Type 1 - Router LSA (Router-ID + direcly connected - for within area)
+2) Type 2 - Network LSA ( Identify DR/BDR routing - for within area)
+3) Type 3 - summary LSA (Area Border ROuter (ABR) - for different area)
 4) Type 4 - Route Redistribution (Autonomous System Boundary Router - ASBR, for different ospf area)
 5) Type 5 - Route Redistribution (External Route)
-7) Type 7 - External Route ( Not So Stubby Area - NSSA)
+7) Type 7 - External Route in stub area ( Not So Stubby Area - NSSA)
+
+## Area
+seperating area to make LSA smaller
+
+must have area 0 backbone
+
+## Design
+![image](https://user-images.githubusercontent.com/83261924/214199562-462bf03b-0ef6-42d1-b5a0-738888894b82.png)
+
+Access layer - preferred point-to-point.
+Distribution layer - stub area -> No type 4,5,7 --> 0.0.0.0/0 (default gateway)
+Core layer - area o
+
+## Security
+passive interface - on router that connected to uplink.
+```
+R3
+passive-interface ethernet 0/1 
+```
+![image](https://user-images.githubusercontent.com/83261924/214202021-15749fb7-8efa-41b7-9404-f9b2a317f7e6.png)
+
+R2 learn R3 interface
+
+![image](https://user-images.githubusercontent.com/83261924/214201964-f3bd7b5a-54b4-4a32-b8ef-3af00984ad9f.png)
+
+State become down --> passive-interface
+
 
 ## Troubleshoot
 ```
