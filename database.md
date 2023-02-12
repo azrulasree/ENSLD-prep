@@ -1,13 +1,9 @@
 # Database System Architecture
-Content from Neso [Academy](https://www.youtube.com/watch?v=OMwgGL3lHlI&list=PLBlnK6fEyqRiyryTrbKHX1Sh9luYI0dhX&ab_channel=NesoAcademy)
+Content from [Neso Academy](https://www.youtube.com/watch?v=OMwgGL3lHlI&list=PLBlnK6fEyqRiyryTrbKHX1Sh9luYI0dhX&ab_channel=NesoAcademy)
+
+Syllabus
 ![image](https://user-images.githubusercontent.com/83261924/218288730-c47a3a8d-b8fe-40e7-94ec-c066b64caa53.png)
 
-
-* RDBMS
-* Relational Database
-* Database Design & E-R Model
-* SQL
-* 
 
 Database Management System
 ![image](https://user-images.githubusercontent.com/83261924/218282848-e2fe033b-0bad-4c37-a357-6e79be4f5807.png)
