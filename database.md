@@ -1,4 +1,12 @@
 # Database System Architecture
+Content from youtube ![image](https://user-images.githubusercontent.com/83261924/218288730-c47a3a8d-b8fe-40e7-94ec-c066b64caa53.png)
+
+
+* RDBMS
+* Relational Database
+* Database Design & E-R Model
+* SQL
+* 
 
 Database Management System
 ![image](https://user-images.githubusercontent.com/83261924/218282848-e2fe033b-0bad-4c37-a357-6e79be4f5807.png)
@@ -23,9 +31,23 @@ Database Management System
 * indices - help retreive data faster. (index pages)
 
 ### Transaction Management
-* Atomicity requirement
-* All or None
-* Consistency
-* Durability
+* recovery manager - recover failure state
+* concurrency-control manager
 
+Transaction is one logical operation.
+* Atomicity requirement - All or None
+* Consistency
+* Durability - withstand failure, incase some transaction missing when this accur
+
+
+## Query Processor
+(Data Manupulation Language) DML Query - for change database data
+(Data Definition Language) DDL Interpreter - full previledge over database. add column...
+DML compiler and organizer - 
+application program object code - will convert 
+
+### Query Evaluation Engine
+
+
+---
 ## DBMS Language - SQL
