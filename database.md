@@ -1,11 +1,21 @@
 # Database System Architecture
 Content from [Neso Academy](https://www.youtube.com/watch?v=OMwgGL3lHlI&list=PLBlnK6fEyqRiyryTrbKHX1Sh9luYI0dhX&ab_channel=NesoAcademy)
 
-Syllabus
+### 3 tier architecture
+![image](https://user-images.githubusercontent.com/83261924/218325490-666c5909-1ddd-4178-b79c-18f707f27acb.png)
+
+* Presentation (GUI,Web Interface) - frontend
+* application (web page, program)-
+* data tier - Backend
+
+## Syllabus
 ![image](https://user-images.githubusercontent.com/83261924/218288730-c47a3a8d-b8fe-40e7-94ec-c066b64caa53.png)
 
+* E-R Model
+* Data Model
+* Object Based Model == E.R + Object Oriented
 
-Database Management System
+## Database Management System
 ![image](https://user-images.githubusercontent.com/83261924/218282848-e2fe033b-0bad-4c37-a357-6e79be4f5807.png)
 
 ## Storage Manager
