@@ -63,8 +63,8 @@ leveraged by service provider
 1) Type 1 - Router LSA (Router-ID + direcly connected - for within area)
 2) Type 2 - Network LSA ( Identify DR/BDR routing - for within area)
 3) Type 3 - summary LSA (Area Border ROuter (ABR) - for different area)
-4) Type 4 - Route Redistribution (Autonomous System Boundary Router - ASBR, for different ospf area)
-5) Type 5 - Route Redistribution (External Route)
+4) Type 4 - Route Redistribution (define whoe is ASBR - Autonomous System Boundary Router)
+6) Type 5 - Route Redistribution (External Route)
 7) Type 7 - External Route in stub area ( Not So Stubby Area - NSSA)
 
 ## Area
