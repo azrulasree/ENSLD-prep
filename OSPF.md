@@ -141,7 +141,8 @@ show ip ospf database external 10.0.0.72 details
 ## NX-OS Setup for datacenter
 Is used as underlay network.
 ### Starting command
-```conf t
+```
+conf t
 feature ospf // features is turn on
 router ospf 1 //ospf enable in global config
 ```
@@ -158,7 +159,8 @@ ip router ospf 1 area 0
 ```
 ### n7k1
 #### enable interface
-```int e1/3
+```
+int e1/3
 no switchport
 ip add 10.51.71.71/23
 no shut
@@ -169,7 +171,8 @@ int lo0
 ip add10.0.0.71/32
 ```
 #### enable ospf
-```feature ospf
+```
+feature ospf
 router ospf 1
 int lo0
 router ospf 1 area 0
@@ -184,7 +187,8 @@ terminal monitor //get log messages to local console
 ```
 
 ### N5K2
-```int e1/5
+```
+int e1/5
 no switchport
 ip add 10.52.71.52/24
 no shut
@@ -208,7 +212,8 @@ exit
 ```
 
 ### N7K2
-```int e1/4
+```
+int e1/4
 no switchp
 ip add 10.52.72.72/24
 no shut
@@ -224,7 +229,8 @@ router eigrp 1
 ### redistribute
 * Redistribute will give LSA type 5 to all AS
 N5K2
-```router ospf 1
+```
+router ospf 1
 redistribute eigrp 1 route-map PERMIT_ALL
 router eigrp 1
 redistribute ospf 1 route-map PERMIT_ALL
@@ -245,7 +251,8 @@ int e1/5
 ip ospf network point-to-point
 ```
 N7K1
-```int e1/3
+```
+int e1/3
 module p2p
 ```
 ===
