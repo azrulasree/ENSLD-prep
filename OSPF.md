@@ -223,7 +223,6 @@ router eigrp 1
 ```
 ### redistribute
 * Redistribute will give LSA type 5 to all AS
-* 
 N5K2
 ```router ospf 1
 redistribute eigrp 1 route-map PERMIT_ALL
@@ -237,11 +236,12 @@ redistribute ospf 1 route-map PERMIT_ALL
 * Broadcase - default
 * Non-broadcast
 
-2mode support in NX-OS is broadcast and point-to-point
+2 mode support in NX-OS is broadcast and point-to-point
 * having point-to-point will remove LSA type-2. 
 * Means no election of DR/BDR
 N5K1
-```int e1/5
+```
+int e1/5
 ip ospf network point-to-point
 ```
 N7K1
