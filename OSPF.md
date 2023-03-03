@@ -236,6 +236,17 @@ router eigrp 1
 redistribute ospf 1 route-map PERMIT_ALL
 ```
 
+### Type1
+N5K2
+```
+route-map TYPE_1_EXTERNAL
+set netric-type type-1
+router ospf 1
+redidstribute eigrp 1 route-map TYPE_1_EXTERNAL
+```
+to effect part selection for redistribution at the same time
+Type1 will be preffered as lower metrics than type 2
+
 ### Network Type
 * Point-to-point
 * Point-to-Multipoint
