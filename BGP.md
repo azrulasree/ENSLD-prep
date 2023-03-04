@@ -33,7 +33,7 @@ router bgp 65001
 neighbor 10.0.0.51
 remote-as 65001
 update-source lo0
-address-family ipv4 unicast
+address-family ipv4 unicast //by default is not enable
 route-reflector-client
 
 ```
@@ -57,3 +57,31 @@ remote-as 65001
 log-neighbor-changes
 ```
 
+### EBGP
+```
+int e1/15
+no switchport
+no shut
+int e1/15.51
+encapsulation dot1Q 51
+ip add 10.0.51.51/24
+no shut
+```
+####  to advertise external hop towards all nexus
+##### option 1
+N5K1
+```
+int e1/15.51
+ip router ospf 1 area 0
+ip ospf passive-interface //just to make this ip part of ospf network. not share it own known network
+```
+##### option 2
+```
+router bgp 65001
+neighbor 10.0.0.71
+address-family ipv4 unicast
+next-hop-self
+neighbor 10.0.0.72
+address-family ipv4 unicast
+next-hop-self
+```
